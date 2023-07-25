@@ -13,6 +13,15 @@ function randomContact(){
     setContacts([...contacts, contact])
 }
 
+function sortName(){
+  const sortedName = [...contacts].sort((a, b) => a.name.localeCompare(b.name));
+  setContacts(sortedName);
+}
+
+function sortPopularity(){
+  const sortedPopularity = [...contacts].sort((a, b) => b.popularity - a.popularity);
+  setContacts(sortedPopularity);
+}
 
   return (
     
@@ -21,6 +30,14 @@ function randomContact(){
 
       <button onClick = {randomContact}>
       Add Random Contact
+      </button>
+
+      <button onClick = {sortName}>
+        Sort By Name
+      </button>
+
+      <button onClick = {sortPopularity}>
+        Sort By Popularity
       </button>
 
       <table>
